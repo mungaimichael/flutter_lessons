@@ -22,7 +22,7 @@ class Wrapper extends StatelessWidget {
         height: double.infinity,
         width: double.infinity,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
               height: 450,
@@ -78,6 +78,7 @@ class Wrapper extends StatelessWidget {
                             fontSize: 19,
                             color: Colors.white
                         ),),
+
 
                       ),
                     ),
