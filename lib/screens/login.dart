@@ -27,7 +27,17 @@ class _LoginScreenState extends State<Login> {
       val=  field ;
     });
   }
+  handleEmailChange ( String field) {
+    setState(() {
+      val=  field ;
+    });
+  }
 
+  handlePasswordChange ( String field) {
+    setState(() {
+      val=  field ;
+    });
+  }
 
 
   @override
@@ -42,7 +52,10 @@ class _LoginScreenState extends State<Login> {
             child: Column(
               children: [
                 Text("Welcome to FlutterGrow",
-                style: GoogleFonts.poppins(),
+                style: GoogleFonts.poppins(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w300
+                ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 12),
@@ -59,16 +72,16 @@ class _LoginScreenState extends State<Login> {
 
                  ),
                  width: double.infinity,
-                 height: 300,
+                 height: 250,
 
 
                  child: Form(child:
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      FormInput(controller: emailController, icon: Icons.icecream, fun: handleInputChange,),
-
-                      Text(emailController.text)
+                      FormInput(controller: usernameController, icon: Icons.face_3_outlined, fun: handleInputChange, label: 'Username',),
+                      FormInput(controller: emailController, icon: Icons.email_outlined, fun: handleEmailChange, label: 'Email',),
+                      FormInput(controller: passwordController, icon: Icons.lock_clock_outlined, fun: handlePasswordChange, label: 'Password',),
 
 
                     ],
