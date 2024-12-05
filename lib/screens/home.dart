@@ -13,11 +13,10 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-        appBar: const AppbarWidget(),
+        appBar:  const AppbarWidget(),
         body: Wrapper(
           text1: "Make Learning Flutter Easy, Fast and Fun"
         , text2: "When someone learning Flutter asks you why some widget with width: 100 isn't 100 pixels wide", img: 'onboarding', nextScreen: const Onboarding(), skip: Login(), ),
-
 
     );
   }
