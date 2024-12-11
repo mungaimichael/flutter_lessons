@@ -47,9 +47,10 @@ class _FormState extends State<FormInput> {
               controller: widget.controller,
               onChanged: (string) {
                 widget.fun(widget.controller.text);
-                print(widget.controller.text);
               },
-              style: GoogleFonts.poppins(),decoration:  InputDecoration(
+              style: GoogleFonts.poppins(
+                fontSize: 12
+              ),decoration:  InputDecoration(
               label:Text(widget.label,
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w300,
