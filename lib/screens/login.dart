@@ -1,12 +1,15 @@
 
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_lessons/widgets/AppbarWidget.dart';
 import 'package:flutter_lessons/widgets/FormInput.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
+
 
 class Login extends StatefulWidget {
+  const Login({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _LoginScreenState();
@@ -47,7 +50,7 @@ class _LoginScreenState extends State<Login> {
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: SizedBox(
-            height: 600,
+            height: 650,
             width: double.infinity,
             child: Column(
               children: [
@@ -73,8 +76,6 @@ class _LoginScreenState extends State<Login> {
                  ),
                  width: double.infinity,
                  height: 250,
-
-
                  child: Form(child:
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -87,8 +88,30 @@ class _LoginScreenState extends State<Login> {
                     ],
                   )
                  ),
+
                ),
-                // Text(value)
+                 const Expanded(child: SizedBox(),
+
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  // height: 80,
+                  child:            FloatingActionButton(
+                    onPressed: () {
+                      Get.toNamed("/profile");
+                    },
+                    elevation: 0,
+                    backgroundColor: Colors.orange,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)
+                    ),
+                    child: Text("Login", style: GoogleFonts.poppins(
+                        fontSize: 19,
+                        color: Colors.white
+                    ),),
+
+                  ),
+                )
               ],
             )
           ),
