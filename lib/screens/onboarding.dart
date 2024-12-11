@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lessons/screens/home.dart';
 import 'package:flutter_lessons/widgets/AppbarWidget.dart';
 import 'package:flutter_lessons/widgets/Wrapper.dart';
 
@@ -10,9 +9,9 @@ class Onboarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: const AppbarWidget(),
-        body: Wrapper(text1: "Be a Flutter Ninja Faster than Ever", text2: "Flutter provides a complete system for navigating between screens and handling deep links. Small applications without complex deep linking can use Navigator", img: '2', nextScreen: Login(), skip: Login(),),
+    return const Scaffold(
+        appBar: AppbarWidget(),
+        body: Wrapper(text1: "Be a Flutter Ninja Faster than Ever", text2: "Flutter provides a complete system for navigating between screens and handling deep links. Small applications without complex deep linking can use Navigator", img: '2', nextScreen:"login", skip: Login(),),
     );
   }
 }
