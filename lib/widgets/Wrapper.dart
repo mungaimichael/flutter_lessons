@@ -1,13 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_lessons/util/dio_functions.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Wrapper extends StatelessWidget {
   final String text1;
   final String text2;
   final String img;
-  final Widget nextScreen;
+  // final Widget nextScreen;
   final Widget skip;
+  final String nextScreen;
 
   const Wrapper({super.key,
     required this.text1, required this.text2, required this.img, required this.nextScreen, required this.skip
@@ -63,11 +66,7 @@ class Wrapper extends StatelessWidget {
 
                       child: FloatingActionButton(
                         onPressed: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => nextScreen
-                            ),
-                          );
+                              Get.toNamed("/$nextScreen");
                         },
                         elevation: 0,
                         backgroundColor: Colors.orangeAccent,
@@ -88,12 +87,10 @@ class Wrapper extends StatelessWidget {
                     height: 45,
 
                     child: FloatingActionButton(
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => skip,
-                          ),
-                        );
+                      onPressed: () async {
+                        var response = await getProducts();
+                        print(response);
+
                       },
                       elevation: 0,
                       backgroundColor: Colors.white,
