@@ -1,22 +1,64 @@
+import 'dart:ffi';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_lessons/widgets/AppbarWidget.dart';
-import 'package:flutter_lessons/widgets/Wrapper.dart';
+import 'package:flutter_lessons/screens/login.dart';
+import 'package:flutter_lessons/screens/products.dart';
+import 'package:flutter_lessons/screens/profile.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-import 'login.dart';
+import '../widgets/ListItem.dart';
+import 'about.dart';
 
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class Home extends GetView {
+
+  RxInt currentIndex = 0.obs;
 
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-        appBar:  const AppbarWidget(),
-        body: Wrapper(
-          text1: "Make Learning Flutter Easy, Fast and Fun"
-        , text2: "When someone learning Flutter asks you why some widget with width: 100 isn't 100 pixels wide", img: 'onboarding', nextScreen: "onboarding", skip: Login(), ),
+    return (
+        Scaffold(
 
+          bottomNavigationBar: Obx(()=>NavigationBar(
+            labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+            indicatorColor: Colors.white,
+            backgroundColor: Colors.orangeAccent,
+            animationDuration: Duration(milliseconds: 500),
+            destinations: const <NavigationDestination>[
+              NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+              NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
+              NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),
+            ],
+            selectedIndex: currentIndex.value,
+            onDestinationSelected: (value){
+              currentIndex.value = value;
+            },
+          )),
+          body: Obx(()=>changeScreen(currentIndex.value)),
+        )
     );
+
   }
+
 }
+
+ Widget changeScreen(int index) {
+   switch (index) {
+     case 0:
+        return  Products();
+     case 1:
+       return  Profile();
+     case 2:
+       return  About();
+     default:
+       return Container(padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 16),
+         height: double.infinity,
+         width: double.infinity,
+         color: Colors.white,
+         child: Text("Home"),
+       );
+   }
+ }
