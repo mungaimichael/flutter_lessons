@@ -4,8 +4,8 @@ import 'package:flutter_lessons/widgets/Wrapper.dart';
 
 import 'login.dart';
 
-class Onboarding extends StatelessWidget {
-  const Onboarding ({super.key});
+class OnboardingTwo extends StatelessWidget {
+  const OnboardingTwo ({super.key});
 
   @override
   Widget build(BuildContext context) {

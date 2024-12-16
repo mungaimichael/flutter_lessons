@@ -96,9 +96,9 @@ class _LoginScreenState extends State<Login> {
                 SizedBox(
                   width: double.infinity,
                   // height: 80,
-                  child:            FloatingActionButton(
+                  child:  FloatingActionButton(
                     onPressed: () {
-                      Get.toNamed("/profile");
+                      Get.toNamed("/home");
                     },
                     elevation: 0,
                     backgroundColor: Colors.orange,
