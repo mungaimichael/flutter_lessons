@@ -11,7 +11,9 @@ import 'package:get/get_navigation/get_navigation.dart';
 
 
 void main () {
+
   runApp(GetMaterialApp(
+
     initialRoute: '/',
     getPages: [
       GetPage(name: "/", page: ()=>const OnboardingOne()),

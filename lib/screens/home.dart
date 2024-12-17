@@ -48,7 +48,7 @@ class Home extends GetView {
  Widget changeScreen(int index) {
    switch (index) {
      case 0:
-        return  Products();
+        return  const Products();
      case 1:
        return  Profile();
      case 2:
