@@ -19,20 +19,33 @@ Future<List<dynamic>> getProducts() async {
   }
 }
 
-class Products  extends StatelessWidget {
+class Products  extends StatefulWidget {
   const Products({super.key});
 
+  @override
+  _ScreenState createState() => _ScreenState();
+
+}
+
+
+class _ScreenState extends State<Products> {
+  late Future<List<dynamic>> dataFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    dataFuture = getProducts();
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
       child: FutureBuilder<List<dynamic>>(
-        future: getProducts(),
+        future: dataFuture,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
-
-              itemCount: 5,
+              itemCount: 10,
               itemBuilder: (context, index) {
                 return ProductItem(
                   title: snapshot.data![index]['title'].toString(),
@@ -45,10 +58,20 @@ class Products  extends StatelessWidget {
             return Text("${snapshot.error}");
           }
           // By default, show a loading spinner.
-          return Center(child: const CircularProgressIndicator());
+          return const Center(child:  Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:  [
+              CircularProgressIndicator(
+                color: Colors.orangeAccent,
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 8.0),
+                child: Text("Loading..."),
+              ),
+            ],
+          ));
         },
       ),
     );
   }
-
 }
