@@ -18,8 +18,13 @@ class ProductItem extends StatelessWidget {
         color: Colors.white,
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.network(image, fit: BoxFit.cover,),
+          SizedBox(
+
+              width: 150,
+              height: 200,
+              child: Image.network(image, fit: BoxFit.contain,)),
           Text(title, style: GoogleFonts.poppins(
               fontSize: 16,
               color: Colors.black,
