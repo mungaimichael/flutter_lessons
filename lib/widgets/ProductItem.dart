@@ -17,26 +17,39 @@ class ProductItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         color: Colors.white,
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Row(
+
+        // mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           SizedBox(
 
-              width: 150,
-              height: 200,
+              width: 120,
+              height: 170,
               child: Image.network(image, fit: BoxFit.contain,)),
-          Text(title, style: GoogleFonts.poppins(
-              fontSize: 16,
-              color: Colors.black,
-              decoration: TextDecoration.none,
-              fontWeight: FontWeight.w600
-          )),
-          Text(price, style: GoogleFonts.poppins(
-              fontSize: 16,
-              color: Colors.black,
-              decoration: TextDecoration.none,
-              fontWeight: FontWeight.w600
-          )),
+          SizedBox(
+
+            width: 120,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(title,
+                    style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        color: Colors.black,
+                        decoration: TextDecoration.none,
+                        fontWeight: FontWeight.w300
+                    )),
+                Text(price,
+                    style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        color: Colors.black,
+                        decoration: TextDecoration.none,
+                        fontWeight: FontWeight.w300
+                    )),
+              ],
+            ),
+          ),
         ],
       ),
     );
