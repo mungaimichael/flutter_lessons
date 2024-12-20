@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_lessons/screens/product.dart';
 import 'package:flutter_lessons/widgets/ProductItem.dart';
+import 'package:get/get.dart';
+
 
 import '../util/dio_functions.dart';
 
@@ -47,11 +50,18 @@ class _ScreenState extends State<Products> {
             return ListView.builder(
               itemCount: 10,
               itemBuilder: (context, index) {
-                return ProductItem(
+
+                return
+                  GestureDetector(
+                      onTap: () {
+                        Get.to(() => ProductPage(productId: snapshot.data![index]['id']));
+                      },
+                      child: ProductItem
+                  (
                   title: snapshot.data![index]['title'].toString(),
                   image: snapshot.data![index]['image'].toString(),
                   price: snapshot.data![index]['price'].toString(),
-                );
+                ));
               },
             );
           } else if (snapshot.hasError) {
